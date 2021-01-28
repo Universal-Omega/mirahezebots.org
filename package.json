@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "npm run stylelint && npm run htmllint",
+    "stylelint": "stylelint 'assets/*.css'",
+    "htmllint": "htmllint 'templates/*.html'"
+  },
+  "devDependencies": {
+    "htmllint": "0.7.3",
+    "htmllint-cli": "^0.0.7",
+    "stylelint": "^13.9.0",
+    "stylelint-config-standard": "^20.0.0"
+  }
+}
