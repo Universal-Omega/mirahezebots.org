@@ -1,7 +1,7 @@
 """Powers Flask API for mirahezebots.org web site."""
 from MirahezeBots_jsonparser import jsonparser as jp
 
-from flask import Flask, send_file, Response
+from flask import Flask, Response, send_file
 
 app = Flask(__name__)
 
@@ -37,7 +37,7 @@ def display_content(path, config):
         with open('templates/head.html', 'r') as head:
             headr = head.read()
             if path == 'index':
-                canonical = config['canonical-prefix']  # / is the canonical url
+                canonical = config['canonical-prefix']  # / is canonical
             else:
                 canonical = config['canonical-prefix']+path
             headr = headr.format(canonical=canonical, title='Title')
@@ -47,7 +47,7 @@ def display_content(path, config):
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
-    """Generates appropiate response to a request."""
+    """Generate appropiate response to a request."""
     if path.endswith('.html'):
         path = path[:5]  # ignore .html endings
     if path == '':
