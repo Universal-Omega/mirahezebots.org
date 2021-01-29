@@ -33,7 +33,11 @@ def display_content(path, config):
                   footerr = footer.read()
         with open('templates/head.html', 'r') as head:
                   headr = head.read()
-                  headr = headr.format(canonical=config['canonical-prefix']+path, title='Title')
+                  if path == 'index':
+                      canonical = config['canonical-prefix']  # index is not canonical
+                  else:
+                      canonical = config['canonical-prefix']+path
+                  headr = headr.format(canonical=canonical, title='Title')
         contents = contents.format(head=headr, footer=footerr, navbar=navbarr)
     return contents
 
@@ -41,6 +45,9 @@ def display_content(path, config):
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
+    path = path.strip('.html')  # ignore .html endings
+    if path == "":
+        path = "index"  # rewrite empty path to index
     config = jp.createdict('config.json')
     if path in config['directshow']:
         return send_file(config['directshow'][path])
