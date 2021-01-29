@@ -10,7 +10,7 @@ def display_content(path, config):
     """Generate the content for templated pages."""
     with open(config['templatedpages'][path], 'r') as file:
         contents = file.read()
-        with open('templates/navbar.html', 'r') as navbar:
+        with open('/var/flask/templates/navbar.html', 'r') as navbar:
             navbarr = navbar.read()
             index = 'href="/"'
             docs = 'href="documentation"'
@@ -32,9 +32,9 @@ def display_content(path, config):
                 aboutlink=about,
                 sourcecodelink=sourcecode,
             )
-        with open('templates/footer.html', 'r') as footer:
+        with open('/var/flask/templates/footer.html', 'r') as footer:
             footerr = footer.read()
-        with open('templates/head.html', 'r') as head:
+        with open('/var/flask/templates/head.html', 'r') as head:
             headr = head.read()
             if path == 'index':
                 canonical = config['canonical-prefix']  # / is canonical
