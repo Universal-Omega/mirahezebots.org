@@ -52,7 +52,10 @@ def catch_all(path):
         path = path[:5]  # ignore .html endings
     if path == '':
         path = 'index'  # rewrite empty path to index
-    config = jp.createdict('config.json')
+    try:
+        config = jp.createdict('config.json')
+    except FileNotFoundError:
+        config = jp.createdict('/var/flask/config.json')
     if path in config['directshow']:
         return send_file(config['directshow'][path])
     if path in config['templatedpages']:
