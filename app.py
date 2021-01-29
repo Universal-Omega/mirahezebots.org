@@ -60,7 +60,6 @@ def catch_all(path):
         return send_file(config['directshow'][path])
     if path in config['templatedpages']:
         return display_content(path, config)
-    return path
     if path.startswith(config['font-awesome-url']):
         return send_file(
             str(
