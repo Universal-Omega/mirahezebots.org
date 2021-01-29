@@ -9,13 +9,13 @@ def display_content(path, config):
         contents = file.read()
         with open('templates/navbar.html', 'r') as navbar:
             navbarr = navbar.read()
-            index = 'href="index"'
+            index = 'href="/"'
             docs = 'href="documentation"'
             contribs = 'href="contribs"'
             about = 'href="about"'
             sourcecode = 'href="https://bots.miraheze.org/wiki/Source_Code"'
             if path == 'index':
-                index = 'class="active" href="index"'
+                index = 'class="active" href="/"'
             if path == 'about':
                 about = 'class="active" href="about"'
             if path == 'documentation':
@@ -45,7 +45,8 @@ def display_content(path, config):
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def catch_all(path):
-    path = path.strip('.html')  # ignore .html endings
+    if path.endswith('.html'):
+        path = path[:5]  # ignore .html endings
     if path == "":
         path = "index"  # rewrite empty path to index
     config = jp.createdict('config.json')
