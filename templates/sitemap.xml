@@ -9,37 +9,37 @@
 
 <url>
   <loc>http://bots.miraheze.wiki</loc>
-  <lastmod>2020-07-04T21:54:44+00:00</lastmod>
+  <lastmod>2021-01-29T21:54:44+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>http://bots.miraheze.wiki/index.html</loc>
-  <lastmod>2020-07-04T21:54:44+00:00</lastmod>
+  <loc>http://bots.miraheze.wiki</loc>
+  <lastmod>2021-01-29T21:54:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://bots.miraheze.wiki/documentation.html</loc>
-  <lastmod>2020-07-04T21:54:44+00:00</lastmod>
+  <loc>http://bots.miraheze.wiki/documentation</loc>
+  <lastmod>2021-01-29T21:54:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://bots.miraheze.wiki/contribs.html</loc>
-  <lastmod>2020-07-04T21:54:44+00:00</lastmod>
+  <loc>http://bots.miraheze.wiki/contribs</loc>
+  <lastmod>2021-01-29T21:54:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://bots.miraheze.wiki/about.html</loc>
-  <lastmod>2020-07-04T21:54:44+00:00</lastmod>
+  <loc>http://bots.miraheze.wiki/about</loc>
+  <lastmod>2021-01-29T21:54:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>http://bots.miraheze.wiki/terms.html</loc>
-  <lastmod>2020-07-04T21:54:44+00:00</lastmod>
+  <loc>http://bots.miraheze.wiki/terms</loc>
+  <lastmod>2021-01-29T21:54:44+00:00</lastmod>
   <priority>0.70</priority>
 </url>
 <url>
-  <loc>http://bots.miraheze.wiki/privacy.html</loc>
-  <lastmod>2020-07-04T21:54:44+00:00</lastmod>
+  <loc>http://bots.miraheze.wiki/privacy</loc>
+  <lastmod>2021-01-29T21:54:44+00:00</lastmod>
   <priority>0.70</priority>
 </url>
 
