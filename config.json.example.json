@@ -16,5 +16,10 @@
       "fosshost.png":"assets/fosshost.png"
    },
    "font-awesome-url":"Font-Awesome",
+   "Font-awesome-path":"Font-Awesome",
    "canonical-prefix":"https://bots.miraheze.wiki/"
+   "rendertemplates":{
+      "navbar":"templates/navbar.html",
+      "footer":"templates/footer.html",
+      "head":"templates/head.html",
 }
