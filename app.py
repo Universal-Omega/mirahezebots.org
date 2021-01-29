@@ -60,7 +60,7 @@ def catch_all(path):
         return send_file(config['directshow'][path])
     if path in config['templatedpages']:
         return display_content(path, config)
-    return Response(404)
+    return Response(status=404)
 
 
 if __name__ == '__main__':
