@@ -1,13 +1,13 @@
 """Powers Flask API for mirahezebots.org web site."""
 from MirahezeBots_jsonparser import jsonparser as jp
 
-from flask import Flask, send_file
+from flask import Flask, send_file, Response
 
 app = Flask(__name__)
 
 
 def display_content(path, config):
-    """Generates the content for templated pages."""
+    """Generate the content for templated pages."""
     with open(config['templatedpages'][path], 'r') as file:
         contents = file.read()
         with open('templates/navbar.html', 'r') as navbar:
@@ -37,7 +37,7 @@ def display_content(path, config):
         with open('templates/head.html', 'r') as head:
             headr = head.read()
             if path == 'index':
-                canonical = config['canonical-prefix']  # index is not canonical
+                canonical = config['canonical-prefix']  # / is the canonical url
             else:
                 canonical = config['canonical-prefix']+path
             headr = headr.format(canonical=canonical, title='Title')
@@ -58,7 +58,7 @@ def catch_all(path):
     if path in config['templatedpages']:
         return display_content(path, config)
     return Response(404)
-  
+
 
 if __name__ == '__main__':
     app.run(debug=True)
