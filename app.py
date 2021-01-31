@@ -39,19 +39,7 @@ def display_content(path, config):
             canonical = config['canonical-prefix']+path
             if path == 'index':
                 canonical = config['canonical-prefix']  # / is canonical
-                title = 'Home - MirahezeBot'
-            if path == 'about':
-                title = 'About - MirahezeBot'
-            if path == 'documentation':
-                title = 'Documentation - MirahezeBot'
-            if path == 'contribs':
-                title = 'Contributors - MirahezeBot'
-            if path == 'privacy':
-                title = 'Privacy - MirahezeBot'
-            if path == 'terms':
-                title = 'Terns - MirahezeBot'
-
-            headr = headr.format(canonical=canonical, title=title)
+            headr = headr.format(canonical=canonical, title=config['title'][path])
     return contents.format(head=headr, footer=footerr, navbar=navbarr)
 
 
