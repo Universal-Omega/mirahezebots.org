@@ -36,11 +36,22 @@ def display_content(path, config):
             footerr = footer.read()
         with open(config['rendertemplates']['head']) as head:
             headr = head.read()
+            canonical = config['canonical-prefix']+path
             if path == 'index':
                 canonical = config['canonical-prefix']  # / is canonical
-            else:
-                canonical = config['canonical-prefix']+path
-            headr = headr.format(canonical=canonical, title='Title')
+                title = 'Home - MirahezeBot'
+            if path == 'about':
+                title = 'About - MirahezeBot'
+            if path == 'documentation':
+                title = 'Documentation - MirahezeBot'
+            if path == 'contribs':
+                title = 'Contributors - MirahezeBot'
+            if path == 'privacy':
+                title = 'Privacy - MirahezeBot'
+            if path == 'terms':
+                title = 'Terns - MirahezeBot'
+
+            headr = headr.format(canonical=canonical, title=title)
     return contents.format(head=headr, footer=footerr, navbar=navbarr)
 
 
@@ -49,7 +60,7 @@ def display_content(path, config):
 def catch_all(path):
     """Generate appropiate response to a request."""
     if path.endswith('.html'):
-        path = path[:5]  # ignore .html endings
+        path = path[:-5]  # ignore .html endings
     if path == '':
         path = 'index'  # rewrite empty path to index
     try:
