@@ -14,7 +14,7 @@
         "marginheight",
         "scrolling"
     ],
-    "attr-req-value": false
+    "attr-req-value": false,
     "indent-delta": false,
     "indent-style": "nonmixed",
     "indent-width": 4,
