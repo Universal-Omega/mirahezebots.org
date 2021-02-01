@@ -1,11 +1,35 @@
 {
+   "title":"MirahezeBot",
    "templatedpages":{
-      "about":"templates/about.html",
-      "contribs":"templates/contribs.html",
-      "documentation":"templates/documentation.html",
-      "index":"templates/index.html",
-      "privacy":"templates/privacy.html",
-      "terms":"templates/terms.html"
+      "about":{
+         "template":"templates/about.html",
+         "title":"About"
+      },
+      "contribs":{
+         "template":"templates/contribs.html",
+         "title":"Contributions"
+      },
+      "documentation":{
+         "template":"templates/documentation.html",
+         "title":"Documentation"
+      },
+      "index":{
+         "template":"templates/index.html",
+         "title":"Home",
+         "canonical":"/"
+      },
+      "privacy":{
+         "template":"templates/privacy.html",
+         "title":"Privacy"
+      },
+      "terms":{
+         "template":"templates/terms.html",
+         "title":"Terms"
+      }
+   },
+   "aliases":{
+      "":"index",
+      "docs":"documentation"
    },
    "directshow":{
       "robots.txt":"templates/robots.txt",
@@ -14,14 +38,6 @@
       "logo.png":"assets/logo.png",
       "favicon.png":"assets/favicon.png",
       "fosshost.png":"assets/fosshost.png"
-   },
-   "title":{
-       "index":"Home - MirahezeBot",
-       "about":"About - MirahezeBot",
-       "documentation":"Documentation - MirahezeBot",
-       "contribs":"Contributions - MirahezeBot",
-       "privacy":"Privacy - MirahezeBot",
-       "terms":"Terms - MirahezeBot"
    },
    "font-awesome-url":"Font-Awesome",
    "Font-awesome-path":"Font-Awesome",
