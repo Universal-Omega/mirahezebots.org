@@ -1,7 +1,7 @@
 """Powers Flask API for mirahezebots.org web site."""
 from MirahezeBots_jsonparser import jsonparser as jp
 
-from flask import Flask, Response, abort, send_file
+from flask import Flask, abort, send_file
 
 app = Flask(__name__)
 
@@ -69,7 +69,7 @@ def catch_all(path):
                 path[len(config['font-awesome-url']):],
             ),
         )
-    abort(404)
+    return abort(404)
 
 
 if __name__ == '__main__':
