@@ -39,7 +39,7 @@ def display_content(path, config):
             canonical = config['canonical-prefix']+path
             if path == 'index':
                 canonical = config['canonical-prefix']  # / is canonical
-            headr = headr.format(canonical=canonical, title=config['title'][path])
+            headr = headr.format(canonical=canonical, title=f'{config['templatedpages'][path][title]} - {config['title']}')
     return contents.format(head=headr, footer=footerr, navbar=navbarr)
 
 
@@ -49,12 +49,12 @@ def catch_all(path):
     """Generate appropiate response to a request."""
     if path.endswith('.html'):
         path = path[:-5]  # ignore .html endings
-    if path == '':
-        path = 'index'  # rewrite empty path to index
     try:
         config = jp.createdict('config.json')
     except FileNotFoundError:
         config = jp.createdict('/var/flask/config.json')
+    if path in config['aliases']:
+        path = config['aliases'][path]
     if path in config['directshow']:
         return send_file(config['directshow'][path])
     if path in config['templatedpages']:
