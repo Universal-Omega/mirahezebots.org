@@ -69,7 +69,7 @@ def catch_all(path):
                 path[len(config['font-awesome-url']):],
             ),
         )
-   abort(404)
+    abort(404)
 
 
 if __name__ == '__main__':
