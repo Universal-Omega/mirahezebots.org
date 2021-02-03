@@ -60,15 +60,18 @@ def catch_all(path):
     if path in config['templatedpages']:
         return display_content(path, config)
     if path.startswith(config['font-awesome-url']):
-        return send_file(
-            str(
-                config['Font-awesome-path'],
+        try:
+            return send_file(
+                str(
+                    config['Font-awesome-path'],
+                )
+                +
+                str(
+                    path[len(config['font-awesome-url']):],
+                ),
             )
-            +
-            str(
-                path[len(config['font-awesome-url']):],
-            ),
-        )
+        except FileNotFoundError:
+            return abort(404)
     return abort(404)
 
 
