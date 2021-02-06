@@ -72,6 +72,8 @@ def catch_all(path):
             )
         except FileNotFoundError:
             return abort(404)
+        except (OSError, IOError):
+            return abort(400)
     return abort(404)
 
 
