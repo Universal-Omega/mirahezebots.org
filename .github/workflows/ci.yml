@@ -43,7 +43,7 @@ jobs:
         run: |
           flake8 --max-line-length 85 .
           pytest .
-          bandit . -r
+          bandit . -r -s=B101
           pip check
           npm run stylelint
           npm run htmllint
