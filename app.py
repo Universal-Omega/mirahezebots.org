@@ -40,9 +40,11 @@ def display_content(path, config):
             if path == 'index':
                 canonical = config['canonical-prefix']  # / is canonical
             headr = headr.format(
-              canonical=canonical, 
-              title=escape(f'{config['templatedpages'][path][title]} - {config['title']}'),
-                          )
+              canonical=canonical,
+              title=escape(
+                f'{config['templatedpages'][path][title]} - {config['title']}'
+                ),
+              ),
     return contents.format(head=headr, footer=footerr, navbar=navbarr)
 
 
