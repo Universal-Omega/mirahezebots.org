@@ -42,7 +42,7 @@ def display_content(path, config):
             headr = headr.format(
               canonical=canonical,
               title=escape(
-                f'{config['templatedpages'][path][title]} - {config['title']}'
+                f'{config["templatedpages"][path][title]} - {config["title"]}'
                 ),
               ),
     return contents.format(head=headr, footer=footerr, navbar=navbarr)
