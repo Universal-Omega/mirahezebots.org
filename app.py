@@ -1,7 +1,7 @@
 """Powers Flask API for mirahezebots.org web site."""
 from MirahezeBots_jsonparser import jsonparser as jp
 
-from flask import Flask, abort, send_file
+from flask import Flask, abort, escape, send_file
 
 app = Flask(__name__)
 
@@ -39,7 +39,10 @@ def display_content(path, config):
             canonical = config['canonical-prefix']+path
             if path == 'index':
                 canonical = config['canonical-prefix']  # / is canonical
-            headr = headr.format(canonical=canonical, title=f'{config['templatedpages'][path][title]} - {config['title']}')
+            headr = headr.format(
+              canonical=canonical, 
+              title=escape(f'{config['templatedpages'][path][title]} - {config['title']}'),
+                          )
     return contents.format(head=headr, footer=footerr, navbar=navbarr)
 
 
@@ -60,15 +63,20 @@ def catch_all(path):
     if path in config['templatedpages']:
         return display_content(path, config)
     if path.startswith(config['font-awesome-url']):
-        return send_file(
-            str(
-                config['Font-awesome-path'],
+        try:
+            return send_file(
+                str(
+                    config['Font-awesome-path'],
+                )
+                +
+                str(
+                    path[len(config['font-awesome-url']):],
+                ),
             )
-            +
-            str(
-                path[len(config['font-awesome-url']):],
-            ),
-        )
+        except FileNotFoundError:
+            return abort(404)
+        except (OSError, IOError):
+            return abort(400)
     return abort(404)
 
 
