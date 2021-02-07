@@ -1,7 +1,7 @@
 """Powers Flask API for mirahezebots.org web site."""
 from MirahezeBots_jsonparser import jsonparser as jp
 
-from flask import Flask, abort, send_file, escape
+from flask import Flask, abort, escape, send_file
 
 app = Flask(__name__)
 
