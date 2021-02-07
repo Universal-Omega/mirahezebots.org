@@ -1,7 +1,7 @@
 """Powers Flask API for mirahezebots.org web site."""
 from MirahezeBots_jsonparser import jsonparser as jp
 
-from flask import Flask, abort, send_file
+from flask import Flask, abort, send_file, escape
 
 app = Flask(__name__)
 
@@ -39,7 +39,7 @@ def display_content(path, config):
             canonical = config['canonical-prefix']+path
             if path == 'index':
                 canonical = config['canonical-prefix']  # / is canonical
-            headr = headr.format(canonical=canonical, title=config['title'][path])
+            headr = headr.format(canonical=canonical, title=escape(config['title'][path]))
     return contents.format(head=headr, footer=footerr, navbar=navbarr)
 
 
