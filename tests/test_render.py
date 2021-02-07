@@ -14,6 +14,7 @@ def test_about_page():
 
 
 def test_title_xss():
+    """Check title construction doesn't make an XSS."""
     content = display_content('index', XSS)
     assert '<title></title><img src=1 href=1 onerror="javascript:alert(1)"></img></title>' not in content  # noqa: E501
     assert '<title>&lt;/title&gt;&lt;img src=1 href=1 onerror=&#34;javascript:alert(1)&#34;&gt;&lt;/img&gt;</title>' in content  # noqa: E501
