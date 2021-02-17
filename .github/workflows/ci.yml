@@ -56,7 +56,7 @@ jobs:
   sonarcloud:
     name: SonarCloud
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'MirahezeBots'
+    if: ${{ always() && github.repository_owner == 'MirahezeBots' }}
     steps:
       - uses: actions/checkout@v2
         with:
