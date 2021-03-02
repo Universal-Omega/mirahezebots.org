@@ -138,10 +138,6 @@ ul li a p {
 
 ul li a em {
     color: #fff;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
-    font-size: 25px;
-    text-align: center;
-    padding-top: 14px;
+    padding-top: 18px;
+    padding-right: 2px;
 }
